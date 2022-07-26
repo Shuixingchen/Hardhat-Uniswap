@@ -20,5 +20,5 @@ async function GetWalletFromMnemonic() {
 }
 
 // main();
-// CreateWallet()
-GetWalletFromMnemonic()
+CreateWallet()
+// GetWalletFromMnemonic()

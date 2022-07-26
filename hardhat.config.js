@@ -63,16 +63,19 @@ module.exports = {
     ropsten: {
       url: `https://ropsten.infura.io/v3/${INFURA_PROJECT_ID}`,
       accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
-      gasPrice: 11000000000
+      gasPrice: 11000000000,
+      buildName:"ropsten",
     },
     rinkeby: {
       url: `https://rinkeby.infura.io/v3/${INFURA_PROJECT_ID}`,
       accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
-      gasPrice: 11000000000
+      gasPrice: 11000000000,
+      buildName:"mumbai",
     },
     mumbai: {
       url: `https://rpc-mumbai.maticvigil.com/v1/0aef2a33937a03dc04746e653c2e985d8246174f`,
-      accounts: [`0x${PRIVATE_KEY_ONE}`]
+      accounts: [`0x${PRIVATE_KEY_ONE}`],
+      buildName:"mumbai",
     },
     dashboardPub:{
       url:"http://127.0.0.1:24012/rpc",

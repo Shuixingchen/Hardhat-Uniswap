@@ -50,40 +50,6 @@ npx hardhat run scripts/upgrade-sportToken.js --network ropsten # 执行deployPr
 
 npx hardhat run scripts/upgrade-sportToken.js --network ropsten # 执行upgradeProxy，产生两笔交易
 ```
-
-## 安装uniswapV3
-```shell
-npm install --save-dev @uniswap/v3-periphery 
-```
-### 和uniswapV3交互
-其实就是和SwapRouter合约交互
-```js
-import {
-  abi as SWAP_ROUTER_ABI,
-  bytecode as SWAP_ROUTER_BYTECODE,
-} from '@uniswap/v3-periphery/artifacts/contracts/SwapRouter.sol/SwapRouter.json'
-```
-如果是合约需要和uniswap交互
-```solidity
-import '@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol';
-
-contract MyContract {
-  ISwapRouter router;
-
-  function doSomethingWithSwapRouter() {
-    // router.exactInput(...);
-  }
-}
-```
-## 使用V3 SDK与uniswap交互
-```shell
-npm i typescript --save
-npm i ts-node --save
-npm i @uniswap/v3-sdk --save
-npm i @uniswap/sdk-core --save
-
-```
-
 ## 启动truffle dashboard
 ```shell
 truffle dashboard

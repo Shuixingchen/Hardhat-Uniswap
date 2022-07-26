@@ -1,26 +1,64 @@
-
-// 部署可升级合约 npm install --save-dev @openzeppelin/hardhat-upgrades
 const { ethers, upgrades } = require("hardhat");
+const hre = require("hardhat");
+const fs = require("fs");
+const path = require("path");
+
+let saveData = {};
+async function DeployUpgradeContract(name, ...arg) {
+  const factory = await ethers.getContractFactory(name);
+  // 使用upgrade来部署可升级合约
+  const contract = await upgrades.deployProxy(factory, ...arg);
+  const instance = await contract.deployed();
+  SaveAddress(name, instance.address)
+  return instance
+}
+
+async function UpgradeContract(name, ...arg) {
+  // Upgrading
+  const factory = await ethers.getContractFactory(name);
+  const upgraded = await upgrades.upgradeProxy(saveData[name], factory, ...arg);
+  instance = await upgraded.deployed();
+  console.log("upgrade proxy implement:",instance.address);
+  return instance;
+}
+
+async function DeployContract(name, ...arg){
+  const factory = await hre.ethers.getContractFactory(name);
+  const contract = await factory.deploy(...arg);
+  const instance = await contract.deployed();
+  SaveAddress(name, instance.address);
+  return instance;
+}
+
+async function SaveAddress(name,address){
+  saveData[name] = address;
+  fs.writeFileSync("./build/"+hre.network.config.buildName, JSON.stringify(saveData, null, 4));
+}
+
+function GetProxyAddress() {
+  if (fs.existsSync("./build/"+hre.network.config.buildName)) {
+    rawdata = fs.readFileSync("./build/"+hre.network.config.buildName)
+    saveData = JSON.parse(rawdata);
+  }
+}
+
+async function GetImplementAddress(name) {
+  let implemention = await upgrades.erc1967.getImplementationAddress(saveData[name]);
+  return implemention;
+}
+
 
 async function main() {
-    const [deployer,account1] = await ethers.getSigners();
-    console.log(`deployer: ${deployer.address}, account1: ${account1.address}` );
+  const [deployer,account1] = await ethers.getSigners();
+  GetProxyAddress()
 
-    // 部署可升级合约
-    // const SportToken = await ethers.getContractFactory("SportToken");
-    // const sportToken = await upgrades.deployProxy(SportToken);
-    // await sportToken.deployed();
-    // console.log("proxy address:", sportToken.address);
-
-    // 升级合约
-    // const proxyAddr = "0xc76eBDD555dec649FE93503dDd3901c14060e008";
-    // const SportTokenV2 = await ethers.getContractFactory("SportTokenV2");
-    // const sportToken = await upgrades.upgradeProxy(proxyAddr,SportTokenV2);
-    // console.log("Token address:", sportToken.address);
-
-    // 修改升级的admin
-    await upgrades.admin.transferProxyAdminOwnership(account1.address);
-    console.log("Transferred ownership of ProxyAdmin to:", account1.address);
+  // 部署可升级合约
+  let sportToken = await DeployUpgradeContract("SportToken");
+    
+  // Upgrading
+  // let upgraded = await UpgradeContract("SportToken")
+  // let imp = await GetImplementAddress("SportToken")
+  // console.log(imp)
 
 }
 
