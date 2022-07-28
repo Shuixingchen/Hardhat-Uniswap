@@ -70,7 +70,7 @@ module.exports = {
       url: `https://rinkeby.infura.io/v3/${INFURA_PROJECT_ID}`,
       accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
       gasPrice: 11000000000,
-      buildName:"mumbai",
+      buildName:"rinkeby",
     },
     mumbai: {
       url: `https://rpc-mumbai.maticvigil.com/v1/0aef2a33937a03dc04746e653c2e985d8246174f`,

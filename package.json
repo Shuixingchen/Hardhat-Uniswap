@@ -24,6 +24,7 @@
     "hardhat": "^2.9.9"
   },
   "dependencies": {
+    "@chainlink/contracts": "^0.4.2",
     "@uniswap/v3-sdk": "^3.8.3",
     "ts-node": "^10.8.1"
   }

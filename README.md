@@ -54,3 +54,8 @@ npx hardhat run scripts/upgrade-sportToken.js --network ropsten # 执行upgradeP
 ```shell
 truffle dashboard
 ```
+
+## 使用Chainlink
+```shell
+npm install @chainlink/contracts --save # 安装chainlink开发库
+```
