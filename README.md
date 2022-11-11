@@ -59,3 +59,7 @@ truffle dashboard
 ```shell
 npm install @chainlink/contracts --save # 安装chainlink开发库
 ```
+
+## 使用merkleTree做白名单
+script/merkletree.js 把白名单地址生成merkletree
+contracts/MerkleTree.sol 合约保存merkleRoot，使用openzeppelin验证

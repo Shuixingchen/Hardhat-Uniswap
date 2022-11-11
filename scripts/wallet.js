@@ -14,9 +14,9 @@ async function CreateWallet() {
 async function GetWalletFromMnemonic() {
     let phrase = "deny mushroom pledge movie number chef oval annual gas attend fence beauty"
     let wallet = hre.ethers.Wallet.fromMnemonic(phrase)
-    console.log("private:",wallet.privateKey)
-    console.log("address:", wallet.address)
-    console.log("mnemonic:",await wallet._mnemonic())
+    // console.log("private:",wallet.privateKey)
+    // console.log("address:", wallet.address)
+    // console.log("mnemonic:",await wallet._mnemonic())
 }
 
 // main();

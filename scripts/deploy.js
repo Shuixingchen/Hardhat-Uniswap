@@ -11,10 +11,10 @@ async function main() {
   console.log(`deployer: ${deployer.address}` );
 
   // 2.部署合约
-  const GameItem = await ethers.getContractFactory("GameItem");
-  let gameItem = await GameItem.deploy("GameItem", "GG");
-  await gameItem.deployed();
-  console.log("GameItem deployed to:", gameItem.address);
+  const Deposit = await ethers.getContractFactory("DepositContract");
+  let deposit = await Deposit.deploy();
+  await deposit.deployed();
+  console.log("deposit deployed to:", deposit.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

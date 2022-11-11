@@ -20,7 +20,6 @@ const PRIVATE_KEY_ONE = process.env.PRIVATE_KEY_ONE;
 const PRIVATE_KEY_TWO = process.env.PRIVATE_KEY_TWO;
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 const POLYGONSCAN_API_KEY = process.env.POLYGONSCAN_API_KEY;
-const PRIVATE_KEY_ONLINE = process.env.PRIVATE_KEY_ONLINE;
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -44,6 +43,15 @@ module.exports = {
         }
       },
       {
+        version: "0.6.11",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 1000,
+          },
+        }
+      },
+      {
         version: "0.7.6",
         settings: {
           optimizer: {
@@ -51,15 +59,27 @@ module.exports = {
             runs: 1000,
           },
         }
+      },
+      {
+        version: "0.8.15",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 1000,
+          },
+        }
+      },
+      {
+        version: "0.4.24",
       }
     ]
   },
   networks: {
-    mainnet: {
-      url: `https://mainnet.infura.io/v3/${INFURA_PROJECT_ID}`,
-      accounts: [`0x${PRIVATE_KEY_ONLINE}`],
-      gasPrice: 20000000000
-    },
+    // mainnet: {
+    //   url: `https://mainnet.infura.io/v3/${INFURA_PROJECT_ID}`,
+    //   accounts: [`0x${PRIVATE_KEY_ONLINE}`],
+    //   gasPrice: 20000000000
+    // },
     ropsten: {
       url: `https://ropsten.infura.io/v3/${INFURA_PROJECT_ID}`,
       accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
@@ -77,9 +97,15 @@ module.exports = {
       accounts: [`0x${PRIVATE_KEY_ONE}`],
       buildName:"mumbai",
     },
+    goerli: {
+      url: `https://eth-goerli.g.alchemy.com/v2/22yeINZOnCEtAWJjw31sa7al_eP4NLGW`,
+      accounts: [`0x${PRIVATE_KEY_ONE}`],
+      buildName:"goerli",
+    },
     dashboardPub:{
       url:"http://127.0.0.1:24012/rpc",
-      buildName:"pub"
+      buildName:"pub",
+      timeout: 200000,
     }
   },
 
@@ -88,7 +114,7 @@ module.exports = {
       mainnet: `${ETHERSCAN_API_KEY}`,
       ropsten: `${ETHERSCAN_API_KEY}`,
       rinkeby: `${ETHERSCAN_API_KEY}`,
-      polygonMumbai: `${POLYGONSCAN_API_KEY}`
+      // polygonMumbai: `${POLYGONSCAN_API_KEY}`
     }
   }  
 };
