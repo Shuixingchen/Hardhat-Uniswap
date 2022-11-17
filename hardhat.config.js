@@ -94,12 +94,12 @@ module.exports = {
     },
     mumbai: {
       url: `https://rpc-mumbai.maticvigil.com/v1/0aef2a33937a03dc04746e653c2e985d8246174f`,
-      accounts: [`0x${PRIVATE_KEY_ONE}`],
+      accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
       buildName:"mumbai",
     },
     goerli: {
       url: `https://eth-goerli.g.alchemy.com/v2/22yeINZOnCEtAWJjw31sa7al_eP4NLGW`,
-      accounts: [`0x${PRIVATE_KEY_ONE}`],
+      accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
       buildName:"goerli",
     },
     dashboardPub:{
@@ -114,7 +114,8 @@ module.exports = {
       mainnet: `${ETHERSCAN_API_KEY}`,
       ropsten: `${ETHERSCAN_API_KEY}`,
       rinkeby: `${ETHERSCAN_API_KEY}`,
-      // polygonMumbai: `${POLYGONSCAN_API_KEY}`
+      goerli: `${ETHERSCAN_API_KEY}`,
+      // mumbai: `${POLYGONSCAN_API_KEY}`
     }
   }  
 };

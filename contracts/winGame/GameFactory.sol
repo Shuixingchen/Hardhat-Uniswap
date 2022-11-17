@@ -2,7 +2,9 @@
 
 pragma solidity ^0.8.10;
 
+import "hardhat/console.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "./interface/IGame.sol";
 import "./Game.sol";
 
 contract GameFactory  is Ownable {
@@ -41,16 +43,35 @@ contract GameFactory  is Ownable {
         return allGames;
     }
 
-    function deposit(uint16 playA, uint16 playB,  uint32 startTime) external{
+    function _findGame(uint16 playA, uint16 playB,  uint32 startTime) internal view returns(address gameAddr){
         require(playA != playB, 'GameFactory: IDENTICAL_PLAY');
         (uint16 play0, uint16 play1) = playA < playB ? (playA, playB) : (playB, playA);
-        require(getGame[play0][play1][startTime] != address(0), 'GameFactory: GAME IS NOT EXIST');
-        address gameAddr = getGame[play0][play1][startTime];
-        address depositer = msg.sender;
-        uint256 amout = msg.value;
-
-        
+        address game = getGame[play0][play1][startTime];
+        require(game != address(0), 'GameFactory: GAME IS NOT EXIST');
+        return game;
     }
 
+    function deposit(uint16 playA, uint16 playB,  uint32 startTime, uint16 _win) external payable{
+        require(_win == playA || _win == playB || _win == playA+playB, "invalid team");
+        address gameAddr = _findGame(playA, playB, startTime);
+        address depositer = msg.sender;
+        uint256 amout = msg.value;
+        require(IGame(gameAddr).deposit{value:amout}(depositer, _win), "Deposit faild");
+    }
+    function setWiner(uint16 playA, uint16 playB,  uint32 startTime, uint16 _win) external onlyOwner{
+        require(_win == playA || _win == playB || _win == playA+playB, "invalid team");
 
+        address gameAddr = _findGame(playA, playB, startTime);
+        require(IGame(gameAddr).setWiner(_win), "setWin faild");
+    }
+
+    function sendPrize(uint16 playA, uint16 playB,  uint32 startTime) external onlyOwner{
+        address gameAddr = _findGame(playA, playB, startTime);
+        require(IGame(gameAddr).sendPrize(), "sendPrize faild");
+    }
+
+    function getWiners(uint16 playA, uint16 playB,  uint32 startTime) external returns(Order[] memory){
+        address gameAddr = _findGame(playA, playB, startTime);
+        return IGame(gameAddr).getWiners();
+    }
 }
