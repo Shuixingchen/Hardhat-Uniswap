@@ -12,7 +12,7 @@ contract Game is IGame,Ownable{
     uint32 startTime;
     uint16 win;
     using SafeMath for uint256;
-    uint fee = 90;
+    uint fee = 85;
     uint256 minAmount = 10**16;
     bool hasSendPrize;
     
@@ -21,7 +21,7 @@ contract Game is IGame,Ownable{
     // winners with award
     Order[] public winers;
     // teamid=>all deposit balance
-    mapping(uint16=>uint256) public balance;
+    mapping(uint16=>uint256) public balancesMap;
 
     constructor(uint16 _a, uint16 _b, uint32 _startTime) {
         console.log("a = %d; b = %d", _a, _b);
@@ -40,7 +40,7 @@ contract Game is IGame,Ownable{
         require(_win == playA || _win == playB || _win == playA+playB, "invalid team");
 
         depositers[_win].push(Order({owner: _depositer, amount: msg.value}));
-        balance[_win] += msg.value;
+        balancesMap[_win] += msg.value;
 
         emit Deposit(_depositer, msg.value,_win);
         return true;
@@ -48,8 +48,8 @@ contract Game is IGame,Ownable{
 
     // calculate win amount
     function _calculate(uint16 _win) internal {
-        uint256 totalAll = (balance[playA] + balance[playB] + balance[playA+playB])*fee/100;
-        uint256 total = balance[_win];
+        uint256 totalAll = (balancesMap[playA] + balancesMap[playB] + balancesMap[playA+playB])*fee/100;
+        uint256 total = balancesMap[_win];
         if (total > 0) {
             for (uint i=0; i<depositers[_win].length; i++) {
                 Order memory order = depositers[_win][i];
@@ -92,5 +92,13 @@ contract Game is IGame,Ownable{
 
     function _send(address payable to, uint256 amount) private {
         require(to.send(amount), "Transfer ETH failed");
+    }
+
+    function getBalance(uint16 _win) public view returns(uint256){
+        return balancesMap[_win];
+    }
+
+    function withdraw(address payable receiver) public onlyOwner {
+        _send(payable(receiver), address(this).balance);
     }
 }

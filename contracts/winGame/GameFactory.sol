@@ -70,8 +70,8 @@ contract GameFactory  is Ownable {
         require(IGame(gameAddr).sendPrize(), "sendPrize faild");
     }
 
-    function getWiners(uint16 playA, uint16 playB,  uint32 startTime) external returns(Order[] memory){
+    function withdraw(uint16 playA, uint16 playB,  uint32 startTime) external onlyOwner{
         address gameAddr = _findGame(playA, playB, startTime);
-        return IGame(gameAddr).getWiners();
+        IGame(gameAddr).withdraw(payable(msg.sender));
     }
 }

@@ -106,6 +106,16 @@ module.exports = {
       url:"http://127.0.0.1:24012/rpc",
       buildName:"pub",
       timeout: 200000,
+    },
+    bsctest: {
+      url: `https://data-seed-prebsc-1-s1.binance.org:8545`,
+      accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
+      buildName:"bsctest",
+    },
+    bsc: {
+      url: `https://bsc-dataseed.binance.org`,
+      accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
+      buildName:"bsctest",
     }
   },
 

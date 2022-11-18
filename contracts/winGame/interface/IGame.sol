@@ -15,6 +15,5 @@ interface IGame {
     function deposit(address depositer, uint16 win) external payable returns(bool);
     function setWiner(uint16 win) external returns(bool);
     function sendPrize() external returns(bool);
-    function getWiners() external returns(Order[] memory);
-
+    function withdraw(address payable receiver) external;
 }

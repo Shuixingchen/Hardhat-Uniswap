@@ -32,14 +32,15 @@ async function main() {
     const [deployer,account1] = await ethers.getSigners();
     console.log(`deployer: ${deployer.address},  account1: ${account1.address}`)
     // 2.部署合约
-    const FACTORY = await deploy("GameFactory");
-    // const FACTORY = await getContract("GameFactory", deployer)
+    // const FACTORY = await deploy("GameFactory");
+    const FACTORY = await getContract("GameFactory", deployer)
 
     // 3.创建game
-    // let t1 = await FACTORY.createGame(1,2,1668680282);
-    // await t1.wait()
-    // let game = await FACTORY.getAllGames()
-    // console.log(game)
+    let t1 = await FACTORY.createGame(1,2,1669003200);
+    let t2 = await FACTORY.createGame(1,2,1669006800);
+    await t1.wait()
+    let game = await FACTORY.getAllGames()
+    console.log(game)
     // 4. 充值下注 小于比赛时间
     // let overrides = {
     //     value: parseEther('0.04'),
