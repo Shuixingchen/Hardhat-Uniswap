@@ -2,6 +2,7 @@ const { BigNumber } = require("ethers");
 const hre = require("hardhat");
 const { parseBytes32String, formatBytes32String,toUtf8Bytes,parseEther } = require("ethers/lib/utils");
 const { web3, ethers } = require("hardhat");
+const games= require('../json/games.json'); 
 const fs = require("fs");
 
 let saveData = {};
@@ -31,6 +32,14 @@ async function getContract(name, deployer, addr="") {
     return contract
 }
 
+function gameSql(game) {
+    let sql = "insert into games(`playA_id`, `playB_id`, `start_time`) values "
+    for (let index = 0; index < game.length; index++) {
+        const element = game[index];
+        console.log(element)
+    }
+}
+
 async function main() {
     const [deployer,account1] = await ethers.getSigners();
     console.log(`deployer: ${deployer.address},  account1: ${account1.address}`)
@@ -39,11 +48,20 @@ async function main() {
     const FACTORY = await getContract("GameFactory", deployer)
 
     // 3.创建game
+    // for (let index = 0; index < games.length; index++) {
+    //     const element = games[index];
+    //     var date = new Date(element.startTime)
+    //     await FACTORY.createGame(element.playAID, element.playBID, date.getTime()/1000);
+    // }
     // let t1 = await FACTORY.createGame(1,2,1669003200);
     // let t2 = await FACTORY.createGame(1,2,1669006800);
     // await t1.wait()
-    // let game = await FACTORY.getAllGames()
+    let game = await FACTORY.getAllGames()
     // console.log(game)
+    for (let index = 0; index < game.length; index++) {
+        const element = game[index];
+        console.log(element)
+    }
     // 4. 充值下注 小于比赛时间
     // let overrides = {
     //     value: parseEther('0.2'),
@@ -55,7 +73,7 @@ async function main() {
     // // 5. 设置比赛结果 大于比赛时间
     // let setTx = await FACTORY.setWiner(1,2,1668680282,1)
     // await setTx.wait()
-    // let wins = await FACTORY.getWiners(1,2,1668680282)
+    // let wins = await FACTORY.getWiners(1,2,1668680282)å
 
     // // 6. 发布奖励
     // let sendTx = await FACTORY.sendPrize(1,2,1668680282)
@@ -67,7 +85,7 @@ async function main() {
 
     // 8. getBalance
     // const Game = await getContract("Game", deployer, "0xE0fdA1D9979696283CA8f5d8eEec1662a22c3567")
-    // let balance1 = await Game.getBalance(3)
+    // let balance1 = await Game.getBalance('3')
     // console.log(`balance1: ${balance1}`)
     
 }
