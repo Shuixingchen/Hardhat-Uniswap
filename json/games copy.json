@@ -1,0 +1,232 @@
+[
+    {
+        "playAID": 7,
+        "playBID": 8,
+        "startTime": "2022-11-22 03:00:00"
+    },
+    {
+        "playAID": 3,
+        "playBID": 4,
+        "startTime": "2022-11-22 12:00:00"
+    },
+    {
+        "playAID": 9,
+        "playBID": 10,
+        "startTime": "2022-11-22 18:00:00"
+    },
+    {
+        "playAID": 15,
+        "playBID": 16,
+        "startTime": "2022-11-22 21:00:00"
+    },
+    {
+        "playAID": 13,
+        "playBID": 14,
+        "startTime": "2022-11-23 03:00:00"
+    },
+    {
+        "playAID": 11,
+        "playBID": 12,
+        "startTime": "2022-11-23 12:00:00"
+    },
+    {
+        "playAID": 23,
+        "playBID": 24,
+        "startTime": "2022-11-23 18:00:00"
+    },
+    {
+        "playAID": 19,
+        "playBID": 20,
+        "startTime": "2022-11-23 21:00:00"
+    },
+    {
+        "playAID": 21,
+        "playBID": 22,
+        "startTime": "2022-11-24 03:00:00"
+    },
+    {
+        "playAID": 17,
+        "playBID": 18,
+        "startTime": "2022-11-24 12:00:00"
+    },
+    {
+        "playAID": 27,
+        "playBID": 28,
+        "startTime": "2022-11-24 18:00:00"
+    },
+    {
+        "playAID": 31,
+        "playBID": 32,
+        "startTime": "2022-11-24 21:00:00"
+    },
+    {
+        "playAID": 25,
+        "playBID": 26,
+        "startTime": "2022-11-25 03:00:00"
+    },
+    {
+        "playAID": 29,
+        "playBID": 30,
+        "startTime": "2022-11-25 12:00:00"
+    },
+    {
+        "playAID": 6,
+        "playBID": 8,
+        "startTime": "2022-11-25 18:00:00"
+    },
+    {
+        "playAID": 1,
+        "playBID": 3,
+        "startTime": "2022-11-25 21:00:00"
+    },
+    {
+        "playAID": 5,
+        "playBID": 7,
+        "startTime": "2022-11-26 03:00:00"
+    },
+    {
+        "playAID": 2,
+        "playBID": 4,
+        "startTime": "2022-11-26 12:00:00"
+    },
+    {
+        "playAID": 14,
+        "playBID": 16,
+        "startTime": "2022-11-26 18:00:00"
+    },
+    {
+        "playAID": 10,
+        "playBID": 12,
+        "startTime": "2022-11-26 21:00:00"
+    },
+    {
+        "playAID": 9,
+        "playBID": 11,
+        "startTime": "2022-11-27 03:00:00"
+    },
+    {
+        "playAID": 13,
+        "playBID": 15,
+        "startTime": "2022-11-27 12:00:00"
+    },
+    {
+        "playAID": 18,
+        "playBID": 20,
+        "startTime": "2022-11-27 18:00:00"
+    },
+    {
+        "playAID": 21,
+        "playBID": 23,
+        "startTime": "2022-11-27 21:00:00"
+    },
+    {
+        "playAID": 17,
+        "playBID": 19,
+        "startTime": "2022-11-28 03:00:00"
+    },
+    {
+        "playAID": 22,
+        "playBID": 24,
+        "startTime": "2022-11-28 12:00:00"
+    },
+    {
+        "playAID": 26,
+        "playBID": 28,
+        "startTime": "2022-11-28 18:00:00"
+    },
+    {
+        "playAID": 30,
+        "playBID": 32,
+        "startTime": "2022-11-28 21:00:00"
+    },
+    {
+        "playAID": 29,
+        "playBID": 31,
+        "startTime": "2022-11-29 03:00:00"
+    },
+    {
+        "playAID": 25,
+        "playBID": 27,
+        "startTime": "2022-11-29 12:00:00"
+    },
+    {
+        "playAID": 2,
+        "playBID": 3,
+        "startTime": "2022-11-29 23:00:00"
+    },
+    {
+        "playAID": 1,
+        "playBID": 4,
+        "startTime": "2022-11-29 23:00:00"
+    },
+    {
+        "playAID": 5,
+        "playBID": 8,
+        "startTime": "2022-11-30 03:00:00"
+    },
+    {
+        "playAID": 6,
+        "playBID": 7,
+        "startTime": "2022-11-30 12:00:00"
+    },
+    {
+        "playAID": 13,
+        "playBID": 16,
+        "startTime": "2022-11-30 23:00:00"
+    },
+    {
+        "playAID": 14,
+        "playBID": 15,
+        "startTime": "2022-11-30 23:00:00"
+    },
+    {
+        "playAID": 9,
+        "playBID": 12,
+        "startTime": "2022-12-01 03:00:00"
+    },
+    {
+        "playAID": 10,
+        "playBID": 11,
+        "startTime": "2022-12-01 03:00:00"
+    },
+    {
+        "playAID": 21,
+        "playBID": 24,
+        "startTime": "2022-12-01 23:00:00"
+    },
+    {
+        "playAID": 22,
+        "playBID": 23,
+        "startTime": "2022-12-01 23:00:00"
+    },
+    {
+        "playAID": 17,
+        "playBID": 20,
+        "startTime": "2022-12-02 03:00:00"
+    },
+    {
+        "playAID": 18,
+        "playBID": 19,
+        "startTime": "2022-12-02 03:00:00"
+    },
+    {
+        "playAID": 29,
+        "playBID": 32,
+        "startTime": "2022-12-02 23:00:00"
+    },
+    {
+        "playAID": 30,
+        "playBID": 31,
+        "startTime": "2022-12-02 23:00:00"
+    },
+    {
+        "playAID": 26,
+        "playBID": 27,
+        "startTime": "2022-12-03 03:00:00"
+    },
+    {
+        "playAID": 25,
+        "playBID": 28,
+        "startTime": "2022-12-03 03:00:00"
+    }
+]

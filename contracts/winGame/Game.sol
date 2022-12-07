@@ -12,7 +12,7 @@ contract Game is IGame,Ownable{
     uint32 startTime;
     uint16 win;
     using SafeMath for uint256;
-    uint fee = 85;
+    uint fee = 90;
     uint256 minAmount = 10**16;
     bool hasSendPrize;
     
@@ -35,7 +35,7 @@ contract Game is IGame,Ownable{
     // playA+playB is dogfall
     function deposit(address _depositer, uint16 _win) public payable onlyOwner  returns(bool){
         require(block.timestamp < startTime, "Bet Time expired");
-        require(msg.value>minAmount, "deposit value must be greater than 0.01");
+        require(msg.value>=minAmount, "deposit value must be greater than 0.01");
         require(_depositer != address(0), "deposit address invalid");
         require(_win == playA || _win == playB || _win == playA+playB, "invalid team");
 

@@ -97,6 +97,11 @@ module.exports = {
       accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
       buildName:"mumbai",
     },
+    polygon: {
+      url: `https://polygon-mainnet.g.alchemy.com/v2/kfKGB2gd3NQ0YEP3_rYSlQcve00qUo1k`,
+      accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
+      buildName:"polygon",
+    },
     goerli: {
       url: `https://eth-goerli.g.alchemy.com/v2/22yeINZOnCEtAWJjw31sa7al_eP4NLGW`,
       accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
@@ -113,7 +118,7 @@ module.exports = {
       buildName:"bsctest",
     },
     bsc: {
-      url: `https://bsc-dataseed.binance.org`,
+      url: `https://bsc-dataseed1.ninicoin.io`,
       accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
       buildName:"bsctest",
     }
