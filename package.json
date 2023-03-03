@@ -12,7 +12,7 @@
     "@nomiclabs/hardhat-ethers": "^2.0.6",
     "@nomiclabs/hardhat-etherscan": "^3.1.0",
     "@nomiclabs/hardhat-waffle": "^2.0.3",
-    "@openzeppelin/contracts": "^4.6.2",
+    "@openzeppelin/contracts": "^4.8.1",
     "@openzeppelin/contracts-upgradeable": "^4.6.0",
     "@openzeppelin/hardhat-upgrades": "^1.19.0",
     "@uniswap/sdk-core": "^3.0.1",
@@ -21,13 +21,19 @@
     "dotenv": "^16.0.1",
     "ethereum-waffle": "^3.4.4",
     "ethers": "^5.6.8",
-    "hardhat": "^2.9.9"
+    "hardhat": "^2.9.9",
+    "typescript": "^4.9.5"
   },
   "dependencies": {
     "@chainlink/contracts": "^0.4.2",
     "@uniswap/v3-sdk": "^3.8.3",
+    "bip32": "^4.0.0",
+    "bip39": "^3.1.0",
+    "bitcoinjs-lib": "^6.1.0",
+    "ecpair": "^2.1.0",
     "keccak256": "^1.0.6",
     "merkletreejs": "^0.2.32",
+    "tiny-secp256k1": "^2.2.1",
     "ts-node": "^10.8.1"
   }
 }

@@ -1,3 +1,4 @@
 {
-    "GameFactory": "0xee86eFE8b922A37DF9815Ae47c6b0338Df236fC8"
+    "GameFactory": "0xee86eFE8b922A37DF9815Ae47c6b0338Df236fC8",
+    "ContractDeployerFactory": "0xfD5955f53292138fE66601F0b9c13080E85Ce349"
 }

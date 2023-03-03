@@ -1,8 +1,10 @@
-require("@nomiclabs/hardhat-waffle"); //引入waffle插件（这个插件包含了Ethers.js）
-require("@nomiclabs/hardhat-etherscan");
-require('@openzeppelin/hardhat-upgrades');
+import { task } from "hardhat/config";
+import "@nomiclabs/hardhat-waffle";
+import "@nomiclabs/hardhat-etherscan";
+import "@openzeppelin/hardhat-upgrades";
+import dotenv from "dotenv";
 
-const dotenv = require("dotenv");
+
 dotenv.config({path: __dirname + '/.env'});
 
 
@@ -80,18 +82,6 @@ module.exports = {
     //   accounts: [`0x${PRIVATE_KEY_ONLINE}`],
     //   gasPrice: 20000000000
     // },
-    ropsten: {
-      url: `https://ropsten.infura.io/v3/${INFURA_PROJECT_ID}`,
-      accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
-      gasPrice: 11000000000,
-      buildName:"ropsten",
-    },
-    rinkeby: {
-      url: `https://rinkeby.infura.io/v3/${INFURA_PROJECT_ID}`,
-      accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
-      gasPrice: 11000000000,
-      buildName:"rinkeby",
-    },
     mumbai: {
       url: `https://rpc-mumbai.maticvigil.com/v1/0aef2a33937a03dc04746e653c2e985d8246174f`,
       accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
@@ -113,7 +103,7 @@ module.exports = {
       timeout: 200000,
     },
     bsctest: {
-      url: `https://data-seed-prebsc-1-s1.binance.org:8545`,
+      url: `https://bsc.getblock.io/925559af-ee20-4e39-bc53-0e40abb6fa31/testnet/`,
       accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
       buildName:"bsctest",
     },
