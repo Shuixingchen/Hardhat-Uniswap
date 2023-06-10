@@ -79,9 +79,18 @@ yarn add regtest-client
 ```shell
 mv hardhat.config.js hardhat.config.ts  # 生成配置
 npx hardhat run scripts/btcwallet/btcwallet.ts  # 运行ts脚本
+ts-node test.ts  #不使用框架，运行ts
 ```
 
 ## uniswap交互
 ```shell
+npm i --save @uniswap/v3-sdk
+npm i --save @uniswap/sdk-core
+npm i --save uniswap/smart-order-router
+```
 
+## graphql服务使用
+```shell
+yarn add graphql-http  #https://github.com/graphql/graphql-http#migrating-express-grpahql，可以支持多种http serve
+yarn add express #我们使用express做http serve
 ```

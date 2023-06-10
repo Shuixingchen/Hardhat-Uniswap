@@ -1,14 +1,15 @@
 
+const { ethers } = require("hardhat");
 const hre = require("hardhat");
 
 const TokenAddr = "0xF914418E638036969d937d1F7B00A1C94e90c4Ce"
 
 async function ShowToken() {
     const [deployer, account1,account2] = await ethers.getSigners();
+    console.log(deployer)
+
     const Contract = await hre.ethers.getContractFactory("Oracle");
     
-    
-
     // 1. 创建合约对象
     const oracle = Contract.attach(TokenAddr)
     // const gameItem = new hre.ethers.Contract(TokenAddr, GameItem.interface, deployer);
