@@ -76,11 +76,15 @@ module.exports = {
       }
     ]
   },
+  defaultNetwork: "mumbai",
   networks: {
+    // dashboard:{
+    //   url:"http://127.0.0.1:24012/rpc",
+    //   buildName:"local"
+    // },
     mainnet: {
       url: `https://mainnet.infura.io/v3/${INFURA_PROJECT_ID}`,
-      accounts: [`0x${PRIVATE_KEY_ONE}`],
-      gasPrice: 20000000000
+      accounts: [`0x${process.env.PRIVATE_KEY_TWO}`],
     },
     mumbai: {
       url: `https://rpc-mumbai.maticvigil.com/v1/0aef2a33937a03dc04746e653c2e985d8246174f`,
@@ -96,11 +100,6 @@ module.exports = {
       url: `https://eth-goerli.g.alchemy.com/v2/22yeINZOnCEtAWJjw31sa7al_eP4NLGW`,
       accounts: [`0x${PRIVATE_KEY_ONE}`,`0x${PRIVATE_KEY_TWO}`],
       buildName:"goerli",
-    },
-    dashboardPub:{
-      url:"http://127.0.0.1:24012/rpc",
-      buildName:"pub",
-      timeout: 200000,
     },
     bsctest: {
       url: `https://bsc.getblock.io/925559af-ee20-4e39-bc53-0e40abb6fa31/testnet/`,

@@ -18,6 +18,7 @@ function getTimeStamp(t) {
     return time1;
 }
 
+// 部署合约
 async function deploy(name, ...arg){
     const factory = await hre.ethers.getContractFactory(name);
     const contract = await factory.deploy(...arg);

@@ -17,6 +17,12 @@ npm install --save-dev @nomiclabs/hardhat-etherscan  // 发布合约代码到eth
 npm install --save-dev dotenv  //读取.env配置文件
 ```
 
+## 直接运行ts文件
+```shell
+npm i ts-node --save
+npx ts-node example.ts
+```
+
 ## 编写和编译合约
 新建目录contracts/,创建文件Token.sol编写合约
 waffle+chai插件可以测试合约，
@@ -50,11 +56,6 @@ npx hardhat run scripts/upgrade-sportToken.js --network ropsten # 执行deployPr
 
 npx hardhat run scripts/upgrade-sportToken.js --network ropsten # 执行upgradeProxy，产生两笔交易
 ```
-## 启动truffle dashboard
-```shell
-truffle dashboard
-```
-
 ## 使用Chainlink
 ```shell
 npm install @chainlink/contracts --save # 安装chainlink开发库
