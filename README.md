@@ -61,37 +61,10 @@ npx hardhat run scripts/upgrade-sportToken.js --network ropsten # 执行upgradeP
 npm install @chainlink/contracts --save # 安装chainlink开发库
 ```
 
-## 使用merkleTree做白名单
-script/merkletree.js 把白名单地址生成merkletree
-contracts/MerkleTree.sol 合约保存merkleRoot，使用openzeppelin验证
-
-
-## btc地址和交易创建
-```shell
-yarn add bitcoinjs-lib # bitcoin library
-yarn add bip39 # 钱包种子转换助记词
-yarn add bip32 # 钱包种子派生
-yarn add ecpair # 椭圆曲线库,需要传入具体的曲线
-yarn add tiny-secp256k1 # secp256
-yarn add regtest-client
-```
 
 ## hardhat 支持typescript
 ```shell
 mv hardhat.config.js hardhat.config.ts  # 生成配置
 npx hardhat run scripts/btcwallet/btcwallet.ts  # 运行ts脚本
 ts-node test.ts  #不使用框架，运行ts
-```
-
-## uniswap交互
-```shell
-npm i --save @uniswap/v3-sdk
-npm i --save @uniswap/sdk-core
-npm i --save uniswap/smart-order-router
-```
-
-## graphql服务使用
-```shell
-yarn add graphql-http  #https://github.com/graphql/graphql-http#migrating-express-grpahql，可以支持多种http serve
-yarn add express #我们使用express做http serve
 ```

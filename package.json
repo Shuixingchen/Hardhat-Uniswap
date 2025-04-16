@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@chainlink/contracts": "^0.4.2",
+    "@poanet/solidity-flattener": "^3.0.9",
     "@types/graphql": "^14.5.0",
     "@uniswap/smart-order-router": "github:uniswap/smart-order-router",
     "@uniswap/v3-sdk": "^3.9.0",
